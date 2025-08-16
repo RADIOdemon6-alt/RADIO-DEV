@@ -23,7 +23,7 @@ body {
   z-index: -1;
 }
 
-/* شاشة الانترو */
+/* ===== شاشة الانترو (TV Noise + Power-On) ===== */
 #intro {
   position: fixed;
   top: 0; left: 0;
@@ -34,30 +34,55 @@ body {
   align-items: center;
   flex-direction: column;
   z-index: 9999;
-  animation: fadeOutIntro 3s ease forwards;
+  overflow: hidden;
+  animation: tvPowerOn 3s forwards;
 }
 
-/* انيميشن الخروج */
-@keyframes fadeOutIntro {
-  0% {
-    opacity: 1;
-    filter: contrast(120%) brightness(110%);
-  }
-  70% {
-    opacity: 0.6;
-    filter: contrast(150%) brightness(130%) blur(1px);
-  }
-  100% {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-  }
+/* التشويش */
+.static {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    #000 0px,
+    #111 1px,
+    #fff 2px,
+    #222 3px
+  );
+  background-size: 100% 3px;
+  opacity: 0.25;
+  animation: noiseMove 0.15s steps(4) infinite;
 }
 
+/* نص الانترو */
 #intro h2 {
   color: #b71c1c;
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   font-family: "Pirata One", cursive;
+  text-shadow: 0 0 8px #b71c1c, 0 0 20px #ff0000;
+  animation: flicker 0.25s infinite;
+  position: relative;
+  z-index: 2;
+}
+
+/* ======= الأنيميشن ======= */
+@keyframes noiseMove {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 100%; }
+}
+
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
+  20%, 24%, 55% { opacity: 0.4; }
+}
+
+@keyframes tvPowerOn {
+  0% { transform: scaleY(0.005) scaleX(0); opacity: 1; }
+  20% { transform: scaleY(0.005) scaleX(1); opacity: 1; }
+  40% { transform: scaleY(1) scaleX(1); opacity: 1; }
+  80% { opacity: 1; }
+  100% { opacity: 0; visibility: hidden; pointer-events: none; }
 }
 
 /* الهيدر */
@@ -80,7 +105,8 @@ header {
   background: rgba(20, 20, 20, 0.85);
   border: 2px solid #b71c1c;
   border-radius: 20px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6), inset 0 0 15px rgba(183, 28, 28, 0.3);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6),
+              inset 0 0 15px rgba(183, 28, 28, 0.3);
   position: relative;
   text-align: center;
   backdrop-filter: blur(5px);
@@ -134,7 +160,8 @@ header {
   border-radius: 20px;
   text-align: center;
   background: rgba(20, 20, 20, 0.8);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6), inset 0 0 15px rgba(212, 175, 55, 0.3);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6),
+              inset 0 0 15px rgba(212, 175, 55, 0.3);
   backdrop-filter: blur(5px);
 }
 
@@ -164,14 +191,12 @@ header {
   position: relative;
 }
 
-/* أيقونات داخل الأزرار */
 .buttons .btn i {
   margin-right: 8px;
   font-size: 1.1rem;
   vertical-align: middle;
 }
 
-/* تأثير Hover */
 .buttons .btn:hover {
   background: linear-gradient(145deg, #b71c1c, #7f1010);
   color: #fff;
