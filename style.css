@@ -6,12 +6,11 @@
   font-family: "Tajawal", sans-serif;
 }
 
-body.hidden {
-  visibility: hidden; /* يخلي الصفحة مخفية لحد انتهاء الانترو */
-}
+
 
 body {
   background: #0a0a0a;
+  visibility: hidden; /* الصفحة مخفية لحد انتهاء الانترو */
   color: #f5f5f5;
   overflow-x: hidden;
 }
