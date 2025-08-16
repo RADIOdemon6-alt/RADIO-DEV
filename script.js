@@ -15,14 +15,17 @@ window.addEventListener('DOMContentLoaded', () => {
   function startNoise() {
     noiseAudio.play().catch(err => console.log("Audio play error:", err));
   }
-
   window.addEventListener('click', startNoise, { once: true });
   window.addEventListener('keydown', startNoise, { once: true });
 
-  // بعد انتهاء الانميشن (3 ثواني)
+  // اجعل الانترو يظهر ويختفي مع ظهور الصفحة
+  intro.style.display = 'flex';
   setTimeout(() => {
-    intro.style.display = 'none'; // اخفاء الانترو
-    body.style.opacity = '1';     // اظهار الصفحة
-    noiseAudio.pause();            // ايقاف الصوت
-  }, 3000); // مدة الانميشن 3 ثواني
+    intro.style.opacity = '0'; // اختفاء الانترو تدريجيًا
+    setTimeout(() => {
+      intro.style.display = 'none'; // اخفاء الانترو نهائيًا
+      body.style.opacity = '1';     // اظهار الصفحة
+      noiseAudio.pause();            // ايقاف الصوت بعد انتهاء الانترو
+    }, 500); // نفس مدة الانتقال التدريجي
+  }, 3000); // مدة الانترو 3 ثواني
 });
