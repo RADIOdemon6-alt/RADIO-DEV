@@ -1,33 +1,27 @@
-// Intro Animation
-window.addEventListener("load", () => {
-  setTimeout(() => {
-    document.getElementById("intro").style.display = "none";
-  }, 2500); // مدة 2.5 ثانية للتشويش
-});
 window.addEventListener('DOMContentLoaded', () => {
   const intro = document.getElementById('intro');
   const body = document.body;
-
-  // إنشاء صوت التشويش
-  const noiseAudio = new Audio('/assets/Media/noise.opus'); // ضع مسار الصوت الصحيح
-  noiseAudio.volume = 0.25;
   
-  // تشغيل الصوت
-  noiseAudio.play().catch(err => console.log("Audio play error:", err));
-
   // الصفحة مخفية افتراضياً
   body.style.opacity = '0';
   body.style.transition = 'opacity 0.5s ease';
 
-  // مدة الانميشن = 3 ثواني
-  setTimeout(() => {
-    // اخفاء الانترو
-    intro.style.display = 'none';
+  // إنشاء صوت التشويش
+  const noiseAudio = new Audio('/assets/Media/noise.opus'); // ضع مسار الصوت الصحيح
+  noiseAudio.volume = 0.25;
 
-    // اظهار الصفحة
-    body.style.opacity = '1';
+  // نبدأ الصوت عند أي تفاعل من المستخدم
+  function startIntro() {
+    noiseAudio.play().catch(err => console.log("Audio play error:", err));
+  }
 
-    // ايقاف الصوت
-    noiseAudio.pause();
-  }, 3000); // 3000ms = 3 ثواني
+  window.addEventListener('click', startIntro, { once: true });
+  window.addEventListener('keydown', startIntro, { once: true });
+
+  // بعد انتهاء انيميشن الانترو من CSS
+  intro.addEventListener('animationend', () => {
+    intro.style.display = 'none'; // اخفاء الانترو
+    body.style.opacity = '1';     // اظهار الصفحة
+    noiseAudio.pause();            // ايقاف الصوت
+  });
 });
