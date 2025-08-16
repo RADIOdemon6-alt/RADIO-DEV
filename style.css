@@ -1,229 +1,233 @@
-/* ===== إعدادات أساسية ===== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Tajawal", sans-serif;
+/* إعدادات أساسية */
+
+{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: "Tajawal", sans-serif;
 }
+
 
 body {
-  background: #0a0a0a;
-  color: #f5f5f5;
-  overflow-x: hidden;
-  opacity: 0;
-  transition: opacity 0.5s ease;
+background: #0a0a0a;
+color: #f5f5f5;
+overflow-x: hidden;
 }
 
-/* ===== خلفية الفيديو ===== */
+/* خلفية الفيديو */
 #bg-video {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -1;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+object-fit: cover;
+z-index: -1;
 }
 
 /* ===== شاشة الانترو (TV Noise + Power-On) ===== */
 #intro {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.85); /* شفافية */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  z-index: 9999;
-  overflow: hidden;
+position: fixed;
+top: 0; left: 0;
+width: 100%; height: 100%;
+background: #000;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+z-index: 9999;
+overflow: hidden;
+animation: tvPowerOn 3s forwards;
 }
 
 /* التشويش */
 .static {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: repeating-linear-gradient(
-    0deg,
-    #000 0px,
-    #111 1px,
-    #fff 2px,
-    #222 3px
-  );
-  background-size: 100% 3px;
-  opacity: 0.25;
-  animation: noiseMove 0.15s steps(4) infinite;
+position: absolute;
+top: 0; left: 0;
+width: 100%; height: 100%;
+background: repeating-linear-gradient(
+0deg,
+#000 0px,
+#111 1px,
+#fff 2px,
+#222 3px
+);
+background-size: 100% 3px;
+opacity: 0.25;
+animation: noiseMove 0.15s steps(4) infinite;
 }
 
 /* نص الانترو */
 #intro h2 {
-  color: #b71c1c;
-  font-size: 2.8rem;
-  font-family: "Pirata One", cursive;
-  text-shadow: 0 0 8px #b71c1c, 0 0 20px #ff0000;
-  animation: flicker 0.25s infinite;
-  position: relative;
-  z-index: 2;
+color: #b71c1c;
+font-size: 2.8rem;
+font-family: "Pirata One", cursive;
+text-shadow: 0 0 8px #b71c1c, 0 0 20px #ff0000;
+animation: flicker 0.25s infinite;
+position: relative;
+z-index: 2;
 }
 
 /* ======= الأنيميشن ======= */
 @keyframes noiseMove {
-  0% { background-position: 0 0; }
-  100% { background-position: 0 100%; }
+0% { background-position: 0 0; }
+100% { background-position: 0 100%; }
 }
 
 @keyframes flicker {
-  0%,19%,21%,23%,25%,54%,56%,100% { opacity: 1; }
-  20%,24%,55% { opacity: 0.4; }
+0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
+20%, 24%, 55% { opacity: 0.4; }
 }
 
 @keyframes tvPowerOn {
-  0% { transform: scaleY(0.005) scaleX(0); opacity: 1; }
-  20% { transform: scaleY(0.005) scaleX(1); opacity: 1; }
-  40% { transform: scaleY(1) scaleX(1); opacity: 1; }
-  80% { opacity: 1; }
-  100% { opacity: 0; visibility: hidden; pointer-events: none; }
+0% { transform: scaleY(0.005) scaleX(0); opacity: 1; }
+20% { transform: scaleY(0.005) scaleX(1); opacity: 1; }
+40% { transform: scaleY(1) scaleX(1); opacity: 1; }
+80% { opacity: 1; }
+100% { opacity: 0; visibility: hidden; pointer-events: none; }
 }
 
-/* ===== الهيدر 3D ===== */
+/* الهيدر /
+/ الهيدر 3D */
 header {
-  text-align: center;
-  padding: 20px;
-  font-size: 1.8rem;
-  color: #f5f5f5;
-  font-family: "Pirata One", cursive;
-  letter-spacing: 3px;
-  border-bottom: 2px solid #b71c1c;
-  background: linear-gradient(145deg, #1a1a1a, #0d0d0d);
-  box-shadow: 
-    4px 4px 10px #000,
-    -4px -4px 10px #2a2a2a,
-    inset 1px 1px 3px rgba(255,255,255,0.1),
-    inset -1px -1px 3px rgba(0,0,0,0.6);
-  text-shadow: 
-    2px 2px 2px #000,
-    -1px -1px 0 #444;
-  transition: all 0.3s ease;
+text-align: center;
+padding: 20px;
+font-size: 1.8rem;
+color: #f5f5f5;
+font-family: "Pirata One", cursive;
+letter-spacing: 3px;
+border-bottom: 2px solid #b71c1c;
+background: linear-gradient(145deg, #1a1a1a, #0d0d0d);
+box-shadow:
+4px 4px 10px #000,
+-4px -4px 10px #2a2a2a,
+inset 1px 1px 3px rgba(255,255,255,0.1),
+inset -1px -1px 3px rgba(0,0,0,0.6);
+text-shadow:
+2px 2px 2px #000,
+-1px -1px 0 #444;
+transition: all 0.3s ease;
 }
 
+/* Hover effect للبار */
 header:hover {
-  background: linear-gradient(145deg, #b71c1c, #7f1010);
-  color: #fff;
-  text-shadow: 0 0 5px #000;
-  box-shadow: 
-    6px 6px 15px #000,
-    -6px -6px 15px #2a2a2a,
-    inset 0 0 5px rgba(255,255,255,0.2);
-  transform: translateY(-2px);
+background: linear-gradient(145deg, #b71c1c, #7f1010);
+color: #fff;
+text-shadow: 0 0 5px #000;
+box-shadow:
+6px 6px 15px #000,
+-6px -6px 15px #2a2a2a,
+inset 0 0 5px rgba(255,255,255,0.2);
+transform: translateY(-2px);
 }
 
-/* ===== المستطيل الأساسي ===== */
+/* المستطيل الأساسي */
 .about-box {
-  width: 80%;
-  margin: 40px auto;
-  padding: 30px;
-  background: rgba(20,20,20,0.85);
-  border: 2px solid #b71c1c;
-  border-radius: 20px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.6),
-              inset 0 0 15px rgba(183,28,28,0.3);
-  text-align: center;
-  backdrop-filter: blur(5px);
+width: 80%;
+margin: 40px auto;
+padding: 30px;
+background: rgba(20, 20, 20, 0.85);
+border: 2px solid #b71c1c;
+border-radius: 20px;
+box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6),
+inset 0 0 15px rgba(183, 28, 28, 0.3);
+position: relative;
+text-align: center;
+backdrop-filter: blur(5px);
 }
 
 .avatar {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  border: 3px solid #b71c1c;
-  margin-bottom: 10px;
-  transition: transform 0.4s ease;
+width: 120px;
+height: 120px;
+border-radius: 50%;
+border: 3px solid #b71c1c;
+margin-bottom: 10px;
+transition: transform 0.4s ease;
 }
 
 .avatar:hover {
-  transform: scale(1.1) rotate(-3deg);
-  filter: contrast(120%);
+transform: scale(1.1) rotate(-3deg);
+filter: contrast(120%);
 }
 
 .about-box h2 {
-  font-size: 1.5rem;
-  color: #fff;
-  text-shadow: 0 2px 4px #000;
+font-size: 1.5rem;
+color: #fff;
+text-shadow: 0 2px 4px #000;
 }
 
 .about-box h3 {
-  font-size: 1.2rem;
-  color: #d4af37;
-  text-shadow: 0 2px 3px #000;
+font-size: 1.2rem;
+color: #d4af37;
+text-shadow: 0 2px 3px #000;
 }
 
 /* الجملة 3D محفورة */
 .quote {
-  margin-top: 15px;
-  font-style: italic;
-  font-size: 1rem;
-  color: #f0f0f0;
-  text-shadow: 
-    1px 1px 0 #000,
-    2px 2px 2px rgba(0,0,0,0.8),
-    -1px -1px 0 #444;
-  letter-spacing: 1px;
+margin-top: 15px;
+font-style: italic;
+font-size: 1rem;
+color: #f0f0f0;
+text-shadow:
+1px 1px 0 #000,
+2px 2px 2px rgba(0,0,0,0.8),
+-1px -1px 0 #444;
+letter-spacing: 1px;
 }
 
-/* ===== مستطيل التواصل ===== */
+/* مستطيل التواصل */
 .contact-box {
-  width: 70%;
-  margin: 30px auto;
-  padding: 25px;
-  border: 2px solid #d4af37;
-  border-radius: 20px;
-  text-align: center;
-  background: rgba(20,20,20,0.8);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.6),
-              inset 0 0 15px rgba(212,175,55,0.3);
-  backdrop-filter: blur(5px);
+width: 70%;
+margin: 30px auto;
+padding: 25px;
+border: 2px solid #d4af37;
+border-radius: 20px;
+text-align: center;
+background: rgba(20, 20, 20, 0.8);
+box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6),
+inset 0 0 15px rgba(212, 175, 55, 0.3);
+backdrop-filter: blur(5px);
 }
 
 .contact-box h2 {
-  margin-bottom: 15px;
-  color: #b71c1c;
-  text-shadow: 0 3px 6px #000;
+margin-bottom: 15px;
+color: #b71c1c;
+text-shadow: 0 3px 6px #000;
 }
 
-/* ===== الأزرار 3D ===== */
+/* الأزرار 3D */
 .buttons .btn {
-  display: inline-block;
-  margin: 10px;
-  padding: 12px 25px;
-  border: 2px solid #b71c1c;
-  color: #f5f5f5;
-  text-decoration: none;
-  border-radius: 12px;
-  font-weight: bold;
-  background: linear-gradient(145deg, #1a1a1a, #0d0d0d);
-  box-shadow: 
-    4px 4px 10px #000,
-    -4px -4px 10px #2a2a2a,
-    inset 1px 1px 2px rgba(255,255,255,0.1),
-    inset -1px -1px 2px rgba(0,0,0,0.6);
-  transition: all 0.3s ease;
-  position: relative;
+display: inline-block;
+margin: 10px;
+padding: 12px 25px;
+border: 2px solid #b71c1c;
+color: #f5f5f5;
+text-decoration: none;
+border-radius: 12px;
+font-weight: bold;
+background: linear-gradient(145deg, #1a1a1a, #0d0d0d);
+box-shadow:
+4px 4px 10px #000,
+-4px -4px 10px #2a2a2a,
+inset 1px 1px 2px rgba(255,255,255,0.1),
+inset -1px -1px 2px rgba(0,0,0,0.6);
+transition: all 0.3s ease;
+position: relative;
 }
 
 .buttons .btn i {
-  margin-right: 8px;
-  font-size: 1.1rem;
-  vertical-align: middle;
+margin-right: 8px;
+font-size: 1.1rem;
+vertical-align: middle;
 }
 
 .buttons .btn:hover {
-  background: linear-gradient(145deg, #b71c1c, #7f1010);
-  color: #fff;
-  text-shadow: 0 0 5px #000;
-  transform: translateY(-3px);
-  box-shadow: 
-    6px 6px 15px #000,
-    -6px -6px 15px #2a2a2a,
-    inset 0 0 5px rgba(255,255,255,0.2);
-}
+background: linear-gradient(145deg, #b71c1c, #7f1010);
+color: #fff;
+text-shadow: 0 0 5px #000;
+transform: translateY(-3px);
+box-shadow:
+6px 6px 15px #000,
+-6px -6px 15px #2a2a2a,
+inset 0 0 5px rgba(255,255,255,0.2);
+} 
