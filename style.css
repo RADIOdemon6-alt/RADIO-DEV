@@ -1,0 +1,127 @@
+/* إعدادات أساسية */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Tajawal", sans-serif;
+}
+
+body {
+  background: #0a0a0a;
+  color: #f5f5f5;
+  overflow-x: hidden;
+}
+
+/* الهيدر */
+header {
+  text-align: center;
+  padding: 20px;
+  font-size: 1.8rem;
+  color: #b71c1c;
+  border-bottom: 2px solid #b71c1c;
+  font-family: "Pirata One", cursive;
+  letter-spacing: 3px;
+}
+
+/* المستطيل الأساسي */
+.about-box {
+  width: 80%;
+  margin: 40px auto;
+  padding: 30px;
+  background: rgba(20, 20, 20, 0.85);
+  border: 2px solid #b71c1c;
+  border-radius: 15px;
+  position: relative;
+  text-align: center;
+}
+
+.avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 3px solid #b71c1c;
+  margin-bottom: 10px;
+  transition: transform 0.4s ease;
+}
+
+.avatar:hover {
+  transform: scale(1.1) rotate(-3deg);
+  filter: contrast(120%);
+}
+
+.about-box h2 {
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.about-box h3 {
+  font-size: 1.2rem;
+  color: #d4af37;
+}
+
+.quote {
+  margin-top: 15px;
+  font-style: italic;
+  color: #ccc;
+  font-size: 1rem;
+}
+
+/* مستطيل التواصل */
+.contact-box {
+  width: 70%;
+  margin: 30px auto;
+  padding: 25px;
+  border: 2px solid #d4af37;
+  border-radius: 15px;
+  text-align: center;
+  background: rgba(20, 20, 20, 0.8);
+}
+
+.contact-box h2 {
+  margin-bottom: 15px;
+  color: #b71c1c;
+}
+
+.buttons .btn {
+  display: inline-block;
+  margin: 10px;
+  padding: 12px 25px;
+  border: 1px solid #b71c1c;
+  color: #f5f5f5;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.buttons .btn:hover {
+  background: #b71c1c;
+  color: #fff;
+  text-shadow: 0 0 5px #000;
+}
+
+/* المؤثرات */
+#intro {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 9999;
+}
+
+#intro h2 {
+  color: #b71c1c;
+  font-size: 2.5rem;
+  font-family: "Pirata One", cursive;
+}
+
+.static {
+  width: 100%;
+  height: 100%;
+  background: url('https://media.giphy.com/media/oEI9uBYSzLpBK/giphy.gif') center/cover;
+  opacity: 0.2;
+  position: absolute;
+    }
