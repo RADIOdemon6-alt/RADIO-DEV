@@ -1,4 +1,4 @@
-/* إعدادات أساسية */
+/* ===== إعدادات أساسية ===== */
 * {
   margin: 0;
   padding: 0;
@@ -10,9 +10,11 @@ body {
   background: #0a0a0a;
   color: #f5f5f5;
   overflow-x: hidden;
+  opacity: 0;
+  transition: opacity 0.5s ease;
 }
 
-/* خلفية الفيديو */
+/* ===== خلفية الفيديو ===== */
 #bg-video {
   position: fixed;
   top: 0;
@@ -28,14 +30,13 @@ body {
   position: fixed;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  background: #000;
+  background: rgba(0,0,0,0.85); /* شفافية */
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   z-index: 9999;
   overflow: hidden;
-  animation: tvPowerOn 3s forwards;
 }
 
 /* التشويش */
@@ -73,8 +74,8 @@ body {
 }
 
 @keyframes flicker {
-  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
-  20%, 24%, 55% { opacity: 0.4; }
+  0%,19%,21%,23%,25%,54%,56%,100% { opacity: 1; }
+  20%,24%,55% { opacity: 0.4; }
 }
 
 @keyframes tvPowerOn {
@@ -85,8 +86,7 @@ body {
   100% { opacity: 0; visibility: hidden; pointer-events: none; }
 }
 
-/* الهيدر */
-/* الهيدر 3D */
+/* ===== الهيدر 3D ===== */
 header {
   text-align: center;
   padding: 20px;
@@ -107,7 +107,6 @@ header {
   transition: all 0.3s ease;
 }
 
-/* Hover effect للبار */
 header:hover {
   background: linear-gradient(145deg, #b71c1c, #7f1010);
   color: #fff;
@@ -119,17 +118,16 @@ header:hover {
   transform: translateY(-2px);
 }
 
-/* المستطيل الأساسي */
+/* ===== المستطيل الأساسي ===== */
 .about-box {
   width: 80%;
   margin: 40px auto;
   padding: 30px;
-  background: rgba(20, 20, 20, 0.85);
+  background: rgba(20,20,20,0.85);
   border: 2px solid #b71c1c;
   border-radius: 20px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6),
-              inset 0 0 15px rgba(183, 28, 28, 0.3);
-  position: relative;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.6),
+              inset 0 0 15px rgba(183,28,28,0.3);
   text-align: center;
   backdrop-filter: blur(5px);
 }
@@ -173,7 +171,7 @@ header:hover {
   letter-spacing: 1px;
 }
 
-/* مستطيل التواصل */
+/* ===== مستطيل التواصل ===== */
 .contact-box {
   width: 70%;
   margin: 30px auto;
@@ -181,9 +179,9 @@ header:hover {
   border: 2px solid #d4af37;
   border-radius: 20px;
   text-align: center;
-  background: rgba(20, 20, 20, 0.8);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6),
-              inset 0 0 15px rgba(212, 175, 55, 0.3);
+  background: rgba(20,20,20,0.8);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.6),
+              inset 0 0 15px rgba(212,175,55,0.3);
   backdrop-filter: blur(5px);
 }
 
@@ -193,7 +191,7 @@ header:hover {
   text-shadow: 0 3px 6px #000;
 }
 
-/* الأزرار 3D */
+/* ===== الأزرار 3D ===== */
 .buttons .btn {
   display: inline-block;
   margin: 10px;
