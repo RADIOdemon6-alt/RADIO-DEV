@@ -86,15 +86,37 @@ body {
 }
 
 /* الهيدر */
+/* الهيدر 3D */
 header {
   text-align: center;
   padding: 20px;
   font-size: 1.8rem;
-  color: #b71c1c;
-  border-bottom: 2px solid #b71c1c;
+  color: #f5f5f5;
   font-family: "Pirata One", cursive;
   letter-spacing: 3px;
-  text-shadow: 0 3px 5px #000;
+  border-bottom: 2px solid #b71c1c;
+  background: linear-gradient(145deg, #1a1a1a, #0d0d0d);
+  box-shadow: 
+    4px 4px 10px #000,
+    -4px -4px 10px #2a2a2a,
+    inset 1px 1px 3px rgba(255,255,255,0.1),
+    inset -1px -1px 3px rgba(0,0,0,0.6);
+  text-shadow: 
+    2px 2px 2px #000,
+    -1px -1px 0 #444;
+  transition: all 0.3s ease;
+}
+
+/* Hover effect للبار */
+header:hover {
+  background: linear-gradient(145deg, #b71c1c, #7f1010);
+  color: #fff;
+  text-shadow: 0 0 5px #000;
+  box-shadow: 
+    6px 6px 15px #000,
+    -6px -6px 15px #2a2a2a,
+    inset 0 0 5px rgba(255,255,255,0.2);
+  transform: translateY(-2px);
 }
 
 /* المستطيل الأساسي */
