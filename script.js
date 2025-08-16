@@ -1,31 +1,22 @@
-window.addEventListener('DOMContentLoaded', () => {
-  const intro = document.getElementById('intro');
-  const body = document.body;
+// جلب عناصر الانترو
+const intro = document.getElementById('intro');
+const noiseAudio = new Audio('/assets/Media/noise.mp3'); // حط مسار صوت النيوس الصحيح
 
-  // الصفحة مخفية افتراضيًا
-  body.style.opacity = '0';
-  body.style.transition = 'opacity 0.5s ease';
+// تشغيل الصوت عند تحميل الصفحة
+window.addEventListener('load', () => {
+  // تشغيل الصوت بصوت منخفض (يمكن تغييره حسب الرغبة)
+  noiseAudio.volume = 0.4;
+  noiseAudio.play().catch(e => console.log("Autoplay prevented:", e));
 
-  // إنشاء الصوت
-  const noiseAudio = new Audio('/assets/Media/noise.opus'); // ضع المسار الصحيح
-  noiseAudio.loop = true;
-  noiseAudio.volume = 0.25;
-
-  // لتجاوز حظر المتصفح: شغل الصوت عند أي تفاعل
-  function startNoise() {
-    noiseAudio.play().catch(err => console.log("Audio play error:", err));
-  }
-  window.addEventListener('click', startNoise, { once: true });
-  window.addEventListener('keydown', startNoise, { once: true });
-
-  // اجعل الانترو يظهر ويختفي مع ظهور الصفحة
-  intro.style.display = 'flex';
+  // الانترو يختفي بعد 3 ثواني
   setTimeout(() => {
-    intro.style.opacity = '0'; // اختفاء الانترو تدريجيًا
-    setTimeout(() => {
-      intro.style.display = 'none'; // اخفاء الانترو نهائيًا
-      body.style.opacity = '1';     // اظهار الصفحة
-      noiseAudio.pause();            // ايقاف الصوت بعد انتهاء الانترو
-    }, 500); // نفس مدة الانتقال التدريجي
-  }, 3000); // مدة الانترو 3 ثواني
+    // اختفاء الانترو
+    intro.style.opacity = '0';
+    intro.style.visibility = 'hidden';
+    intro.style.pointerEvents = 'none';
+
+    // إيقاف صوت النيوس
+    noiseAudio.pause();
+    noiseAudio.currentTime = 0;
+  }, 3000); // 3000ms = 3 ثواني
 });
