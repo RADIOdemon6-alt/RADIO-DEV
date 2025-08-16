@@ -39,9 +39,9 @@ body {
   flex-direction: column;
   z-index: 9999;
   overflow: hidden;
+  opacity: 1; /* مهم */
   animation: tvPowerOn 3s forwards;
 }
-
 /* التشويش */
 .static {
   position: absolute;
